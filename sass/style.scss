@@ -1,0 +1,52 @@
+/*
+* Theme Name: Patrick Cameron - Final Portfolio Theme
+* Theme URI: http://hackeryou.com
+* Description: Built on top of the HackerYou Starter Theme - http://hackeryou.com
+* Version: 1.0
+* Author: Patrick Cameron & HackerYou
+* Author URI: http://patrickcameron.ca
+*/
+
+@import 'normalize';
+@import 'typography';
+@import 'navigation';
+@import 'sidebar';
+@import 'comments';
+@import 'footer';
+/*
+====================================
+Default Styling
+====================================
+*/
+
+img {
+	max-width: 100%;
+}
+
+body {
+	background-color: ##6B9C73;
+	color: #333;
+}
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.content {
+	float: left;
+	width: 65%;
+	margin-right: 5%;
+}
+
+.full {
+	width: 100%;
+}
+
+
+
+
+
+
+
+
