@@ -12,8 +12,9 @@
 		}
 		h1 {
 			font-weight: 700;
-			font-size: 6em;
+			font-size: 20em;
 			/*font-size: 60px;*/
+			text-align: center;
 		}
 		h2 {
 			font-weight: 700;
@@ -48,10 +49,49 @@
 		.colour3 {
 			background-color: black;
 		}
+		.colourOverlay {
+			position: relative;
+			height: 100vh;
+		}
+		.text {
+			position: absolute;
+			mix-blend-mode: multiply;
+		}
+		.one {
+			/*left: 5px;
+			top: 5px;*/
+			color: #0091E5;
+		}
+		.two {
+			color: #0091E5;
+			/*left: 0;
+			bottom: 0;*/
+		}
+		.three {
+			/*left: -5px;
+			top: -5px;*/
+			color: #0091E5;
+		}
+		.colourOverlay:hover .one {
+			left: 0;
+			top: 0;
+		}
+		.colourOverlay:hover .two {
+			left: 0;
+			bottom: 0;
+		}
+		.colourOverlay:hover .three {
+			left: 0;
+			top: 0;
+		}
 	</style>
 </head>
 <body>
-	<h1>Patrick Cameron</h1>
+	<div class="colourOverlay">
+		<h1 class="text one">Patrick Cameron</h1>
+		<h1 class="text two">Patrick Cameron</h1>
+		<h1 class="text three">Patrick Cameron</h1>
+	</div>
 	<h2>front end developer - toronto</h2>
 	<h3>h3 header text looks like this</h3>
 	<p>Description text looks like this. A revolutionary API-based site for finding the closest LCBO, the cheapest liquor at that LCBO, and the closest alleyway to drink it in.</p>

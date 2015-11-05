@@ -1,8 +1,9 @@
-<footer>
-  <div class="container">
-    <p>&copy; HackerYou <?php echo date('Y'); ?></p>
-  </div>
-</footer>
+	<footer>
+	  <div class="container">
+	    <p>&copy; HackerYou <?php echo date('Y'); ?></p>
+	  </div>
+	</footer>
+</div>
 
 <script>
 /* Google Analytics! */

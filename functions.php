@@ -64,9 +64,17 @@ function hackeryou_scripts() {
   );
 
   wp_enqueue_script(
+    'fullPage', //handle
+    get_template_directory_uri() . '/js/jquery.fullPage.min.js', //source
+    array('jquery'), //dependencies
+    null, // version number
+    true //load in footer
+  );
+
+  wp_enqueue_script(
     'scripts', //handle
     get_template_directory_uri() . '/js/scripts.js', //source
-    array( 'jquery', 'plugins' ), //dependencies
+    array( 'jquery', 'plugins', 'fullPage' ), //dependencies
     null, // version number
     true //load in footer
   );

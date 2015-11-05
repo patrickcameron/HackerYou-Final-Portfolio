@@ -1,51 +1,43 @@
-<?php // If there are no posts to display, such as an empty archive page ?>
+<?php $showPortfolioItems = new WP_Query( array(
+	'post_type'=>'portfolio',
+) ); ?>
 
-<?php if ( ! have_posts() ) : ?>
+<?php $showPortfolioImages = new WP_Query( array(
+	'post_type'=>'portfolio',
+) ); ?>
 
-	<article id="post-0" class="post error404 not-found">
-		<h1 class="entry-title">Not Found</h1>
-		<section class="entry-content">
-			<p>Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.</p>
-			<?php get_search_form(); ?>
-		</section><!-- .entry-content -->
-	</article><!-- #post-0 -->
+<?php if ( $showPortfolioItems->have_posts() ) : ?>
 
-<?php endif; // end if there are no posts ?>
+	<?php while ( $showPortfolioItems->have_posts() ) : $showPortfolioItems->the_post(); ?>
+		<div class="section">
+			<i class="fa fa-chevron-up"></i>
+			<div class="slide">
+				<?php echo get_the_post_thumbnail( $post->ID); ?>
+					<h2><?php the_title(); ?></h2>
+				<section class="entry-content">
+								<p><?php the_content(); ?></p>
+				</section><!-- .entry-content -->
+				<?php while( has_sub_field('images') ): ?>
+									<div class="slide">
+										<?php $image = get_sub_field('image'); ?>
+										<img class="screenshot" src="<?php echo $image['sizes']['medium'] ?>">
+									</div>
+				<?php endwhile; ?>
+			</div>
+			<i class="fa fa-chevron-down"></i>
+		</div>
 
-<?php // if there are posts, Start the Loop. ?>
+	<?php endwhile; ?>
 
-<?php while ( have_posts() ) : the_post(); ?>
+		<?php wp_reset_postdata(); ?>
 
-		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-			<h2 class="entry-title">
-        <a href="<?php the_permalink(); ?>" title="Permalink to: <?php esc_attr(the_title_attribute()); ?>" rel="bookmark">
-          <?php the_title(); ?>
-        </a>
-      </h2>
-
-			<section class="entry-content">
-				<?php the_content('Continue reading <span class="meta-nav">&rarr;</span>'); ?>
-				<?php wp_link_pages( array(
-          'before' => '<div class="page-link"> Pages:',
-          'after' => '</div>'
-        )); ?>
-			</section><!-- .entry-content -->
-
-			<footer>
-				<p><?php the_tags('Tags: ', ', ', '<br>'); ?> Posted in <?php the_category(', '); ?></p>
-        <p><?php comments_popup_link('Respond to this post &raquo;', '1 Response &raquo;', '% Responses &raquo;'); ?></p>
-        <p><?php edit_post_link( 'Edit', '<span class="edit-link">', '</span>' ); ?></p>
-			</footer>
-
-		</article><!-- #post-## -->
-
-		<?php comments_template( '', true ); ?>
-
-
-<?php endwhile; // End the loop. Whew. ?>
-
-<?php // Display navigation to next/previous pages when applicable ?>
-<?php if (  $wp_query->max_num_pages > 1 ) : ?>
-  <p class="alignleft"><?php next_posts_link('&laquo; Older Entries'); ?></p>
-  <p class="alignright"><?php previous_posts_link('Newer Entries &raquo;'); ?></p>
+<?php else:  ?>
+	
 <?php endif; ?>
+
+
+<!-- <div class="section">
+  <div class="slide">slide 1</div>
+  <div class="slide">slide 2</div>
+  <div class="slide">slide 3</div>
+</div> -->

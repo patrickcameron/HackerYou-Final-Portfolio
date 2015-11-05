@@ -1,12 +1,14 @@
 <?php //index.php is the last resort template, if no other templates match ?>
 <?php get_header(); ?>
 
-<div class="main">
+<!-- <div class="section">
   <div class="container">
 
-    <div class="content">
+    <div class="content"> -->
     		<?php get_template_part( 'loop', 'index' );	?>
-    </div> <!--/.content -->
+    <!-- </div> /.content  -->
 
-  </div> <!-- /.container -->
-</div> <!-- /.main -->
+  <!-- </div> /.container -->
+<!-- </div> /.main -->
+
+<?php get_footer(); ?>
