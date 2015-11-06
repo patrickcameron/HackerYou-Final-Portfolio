@@ -15,7 +15,12 @@
 				<?php echo get_the_post_thumbnail( $post->ID); ?>
 					<h2><?php the_title(); ?></h2>
 				<section class="entry-content">
-								<p><?php the_content(); ?></p>
+								<?php the_content(); ?>
+								<?php while( has_sub_field('skills') ): ?>
+														<?php $skills = get_sub_field('skill'); ?>
+														<p><?php echo $skills ?> </p>
+								<?php endwhile; ?>
+								<p><?php the_field('siteurl'); ?></p>
 				</section><!-- .entry-content -->
 				<?php while( has_sub_field('images') ): ?>
 									<div class="slide">
