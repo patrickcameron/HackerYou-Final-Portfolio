@@ -25,6 +25,7 @@ img {
 
 body {
 	color: #333;
+    -webkit-font-smoothing: antialiased;
 }
 
 .container {
@@ -116,19 +117,6 @@ div.slide {
 }
 
 img.screenshot {
-	// border: 5px solid rgba(255, 255, 255, 0.5);
-	border-width: 20px;
-	    border-style: solid;
-	    -webkit-border-image: 
-	      -webkit-gradient(linear, 0 0, 0 100%, from(black), to(rgba(0, 0, 0, 0))) 1 100%;
-	    -webkit-border-image: 
-	      -webkit-linear-gradient(black, rgba(0, 0, 0, 0)) 1 100%;
-	    -moz-border-image:
-	      -moz-linear-gradient(black, rgba(0, 0, 0, 0)) 1 100%;    
-	    -o-border-image:
-	      -o-linear-gradient(black, rgba(0, 0, 0, 0)) 1 100%;
-	    border-image:
-	      linear-gradient(to bottom, black, rgba(0, 0, 0, 0)) 1 100%;
 }
 
 
