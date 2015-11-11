@@ -1,3 +1,5 @@
+<!-- head illustration by Magicon https://thenounproject.com/magicon/ -->
+
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -8,6 +10,7 @@
   <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
   <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,900italic,900,700italic,700,500italic,500,400italic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Karla:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Cabin:400,700italic,700,600italic,600,500italic,500,400italic' rel='stylesheet' type='text/css'>
   
   <?php // Load our CSS ?>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -21,10 +24,47 @@
 
 <div id="fullpage">
 
+<div class="about displayNone">
+
+  <?php $showAboutMe = new WP_Query( array(
+    'post_type'=>'aboutme',
+  ) ); ?>
+
+    <?php if ( $showAboutMe->have_posts() ) : ?>
+
+    <?php while ( $showAboutMe->have_posts() ) : $showAboutMe->the_post(); ?>
+
+    <?php if (has_post_thumbnail()) { 
+        $thumb_id = get_post_thumbnail_id(); $thumb_url = wp_get_attachment_image_src($thumb_id, large, true); 
+        } else {
+            $thumb_url = null;
+        }
+    ?>
+
+    <img class="aboutPortrait" src="<?php echo $thumb_url[0]; ?>" alt="Portrait">
+
+    <div class="aboutMeText">
+        <?php the_content(); ?>
+    </div>
+
+    <?php endwhile; ?>
+
+      <?php wp_reset_postdata(); ?>
+
+  <?php else:  ?>
+    
+  <?php endif; ?>
+
+ </div>
+
+<div class="aboutButton"><p class="aboutText">about/CV</p></div>
+
   <div class="section header">
-      <h1>Patrick Cameron</h1>
-      <h2>Front End Developer</h2>
-      <h3>Toronto</h3>
-      <div class="aboutButton">about/CV</div>
-      <i class="fa fa-chevron-down"></i>
+	<div class="headBrain">
+		<img src="images/brain.png" class="brain" alt="Illustration of head">
+    <div class="gifEventTrigger"></div>
+		<img src="" class="gif" alt="Random animated GIF">
+	</div>
+	<h1>Patrick Cameron is a front end developer from Toronto</h1>
+	<i class="fa fa-chevron-down"></i>
   </div><!--/.header-->

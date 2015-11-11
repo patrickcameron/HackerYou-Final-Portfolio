@@ -2,34 +2,37 @@
 	'post_type'=>'portfolio',
 ) ); ?>
 
-<?php $showPortfolioImages = new WP_Query( array(
-	'post_type'=>'portfolio',
-) ); ?>
-
 <?php if ( $showPortfolioItems->have_posts() ) : ?>
 
 	<?php while ( $showPortfolioItems->have_posts() ) : $showPortfolioItems->the_post(); ?>
 		<div class="section">
-			<i class="fa fa-chevron-up"></i>
 			<div class="slide">
-				<?php echo get_the_post_thumbnail( $post->ID); ?>
-					<h2><?php the_title(); ?></h2>
-				<section class="entry-content">
-								<?php the_content(); ?>
-								<?php while( has_sub_field('skills') ): ?>
-														<?php $skills = get_sub_field('skill'); ?>
-														<p><?php echo $skills ?> </p>
-								<?php endwhile; ?>
-								<p><?php the_field('siteurl'); ?></p>
-				</section><!-- .entry-content -->
-				<?php while( has_sub_field('images') ): ?>
-									<div class="slide">
-										<?php $image = get_sub_field('image'); ?>
-										<img class="screenshot" src="<?php echo $image['sizes']['medium'] ?>">
-									</div>
-				<?php endwhile; ?>
+				<div class="projectWrapper">
+					<?php echo get_the_post_thumbnail( $post->ID); ?>
+					<div class="projectInfo displayFlex">
+						<h2><?php the_title(); ?></h2>
+						<a href="<?php the_field('siteurl'); ?>" target="_blank"><i class="fa fa-external-link"></i><p class="url"><?php the_field('siteurl'); ?></p></a>
+						<section class="entry-content">
+										<?php the_content(); ?>
+										<div class="skills">
+											<?php while( has_sub_field('skills') ): ?>
+												<?php $skills = get_sub_field('skill'); ?>
+												<p class="skill"><?php echo $skills ?> </p>
+											<?php endwhile; ?>
+										</div>
+						</section><!-- .entry-content -->
+					</div>
+					<div class="projectImage">
+						<?php while( has_sub_field('images') ): ?>
+							<?php $image = get_sub_field('image'); ?>
+							<a class="hoverLink" href="<?php the_field('siteurl'); ?>" target="_blank"><div class="rightArrow"><i class="fa fa-angle-right"></i></div></a>
+							<div class="imageContainer">
+								<img class="screenshot screenshotSmall" src="<?php echo $image['sizes']['large'] ?>">
+							</div>
+						<?php endwhile; ?>
+					</div>
+				</div>
 			</div>
-			<i class="fa fa-chevron-down"></i>
 		</div>
 
 	<?php endwhile; ?>
@@ -39,10 +42,3 @@
 <?php else:  ?>
 	
 <?php endif; ?>
-
-
-<!-- <div class="section">
-  <div class="slide">slide 1</div>
-  <div class="slide">slide 2</div>
-  <div class="slide">slide 3</div>
-</div> -->
