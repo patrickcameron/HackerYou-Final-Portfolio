@@ -170,6 +170,9 @@ li {
         p.url {
             display: inline;
         }
+        p.url:hover {
+            border-bottom: 1px solid black;
+        }
         p.skill {
             display: inline;
             background:black;
@@ -251,7 +254,7 @@ img.screenshotLarge {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    z-index: 999;
+    z-index: 9998;
     background-size: cover;
     img {
         margin: 0 50px 50px 50px;
@@ -275,10 +278,10 @@ img.screenshotLarge {
         margin-right: 50px;
     }
     span.im {
-        font-size: 45px;
-        font-size: 4.5em;
-        line-height: 1;
-        margin: 0;
+        // font-size: 45px;
+        // font-size: 4.5em;
+        // line-height: 1;
+        // margin: 0;
     }
     a {
         text-decoration: none;
@@ -339,10 +342,10 @@ img.screenshotLarge {
             border-radius: 50%;
             width: 193px;
             height: 193px;
-            z-index:11;
             top: 14px;
             left: 38px;
-            cursor: pointer;
+            cursor: help;
+            z-index:10000;
         }
         .gifEventTrigger:hover + img.gif {
             position: fixed;
@@ -353,6 +356,7 @@ img.screenshotLarge {
             bottom: 0;
             left: 0;
             right: 0;
+            z-index:9999;
         }
     }
     h1 {
