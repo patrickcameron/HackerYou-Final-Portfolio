@@ -61,7 +61,6 @@
   <div class="section header">
 	<div class="headBrain">
 		<img src="images/brain.png" class="brain" alt="Illustration of head">
-    <div class="gifEventTrigger"></div>
 		<img src="" class="gif" alt="Random animated GIF">
 	</div>
 	<h1>Patrick Cameron is a front end developer from Toronto</h1>

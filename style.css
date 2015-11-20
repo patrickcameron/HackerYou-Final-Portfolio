@@ -540,8 +540,7 @@ li {
       .projectWrapper .projectInfo p a {
         border-bottom: 1px solid black; }
     .projectWrapper .projectInfo p.url {
-      display: inline; }
-    .projectWrapper .projectInfo p.url:hover {
+      display: inline;
       border-bottom: 1px solid black; }
     .projectWrapper .projectInfo p.skill {
       display: inline;
@@ -684,24 +683,6 @@ img.screenshotLarge {
       z-index: 9;
       top: 14px;
       left: 38px; }
-    .header div.headBrain .gifEventTrigger {
-      position: absolute;
-      border-radius: 50%;
-      width: 193px;
-      height: 193px;
-      top: 14px;
-      left: 38px;
-      z-index: 10000; }
-    .header div.headBrain .gifEventTrigger:hover + img.gif {
-      position: fixed;
-      width: 100vw;
-      height: 100vh;
-      border-radius: 0;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 9999; }
   .header h1 {
     max-width: 600px;
     line-height: 1.5;
