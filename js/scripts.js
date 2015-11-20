@@ -12,24 +12,32 @@ var randGif = [Math.floor(Math.random() * gifs.length)];
 // };
 
 $(function(){
-	$('#fullpage').fullpage({
-		// sectionsColor : ['white', '#EE964B', '#F4D35E', 'white', 'rgb(233,234,239)', '#F95738'],
-		// sectionsColor: ['#fff', '#50FFB1', '#4FB286', '#3C896D', '#546D64'],
-		sectionsColor: ['#fff', 'rgb(253,248,237)', 'rgba(193,197,180,0.45)', 'rgba(233,234,239,0.32)', 'rgba(143,152,205,0.52', 'rgb(232,232,232'],
-		loopHorizontal: false,
-		continuousVertical: true,
-		showActiveTooltip: true,
-		controlArrows: false
-	});
+	if ($(window).width() > 900) {
+	   	$('#fullpage').fullpage({
+			sectionsColor: ['#fff', 'rgb(253,248,237)', 'rgba(193,197,180,0.45)', 'rgba(233,234,239,0.32)', 'rgba(143,152,205,0.52', 'rgb(232,232,232'],
+			loopHorizontal: false,
+			continuousVertical: true,
+			showActiveTooltip: true,
+			controlArrows: false,
+			responsiveWidth: 900,
+			responsiveHeight: 600,
+			anchors:['header', 'project1', 'project2', 'project3', 'project4', 'project5']
+		});
+	};
 	$('.aboutButton').on('click', function() {
 		$('.about').toggleClass('displayNone').toggleClass('displayFlex');
 		$(this).toggleClass('aboutButtonAfter');
-		$(this).html('<p>close</p>');
+		if( $(this).text() === 'close' ) {
+			$(this).html('<p>about/CV</p>');
+		}	
+		else {
+			$(this).html('<p>close</p>');
+		}
 		// $('.about').attr('style', 'background-image: url(images/' + gifs[randGif]);
 		// $('p.aboutText').toggle(function() {
 		// 	$(this).text('close');
 		// }, function() {
-		// 	$(this.text('about/CV');
+		// 	
 		// });
 	});
 	$('img.gif').attr('src', 'images/' +  gifs[randGif]);
