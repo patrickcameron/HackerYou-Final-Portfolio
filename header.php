@@ -56,7 +56,7 @@
 
  </div>
 
-<div class="aboutButton"><p class="aboutText">about/CV</p></div>
+<div class="aboutButton"><p class="aboutText">about/contact</p></div>
 
   <div class="section header">
 	<div class="headBrain">

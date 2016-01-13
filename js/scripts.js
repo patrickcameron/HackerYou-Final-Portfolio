@@ -14,14 +14,13 @@ var randGif = [Math.floor(Math.random() * gifs.length)];
 $(function(){
 	if ($(window).width() > 900) {
 	   	$('#fullpage').fullpage({
-			sectionsColor: ['#fff', 'rgb(253,248,237)', 'rgba(193,197,180,0.45)', 'rgba(233,234,239,0.32)', 'rgba(143,152,205,0.52', 'rgb(232,232,232'],
+			sectionsColor: ['#fff', 'rgb(253,248,237)', 'rgba(193,197,180,0.45)', 'rgba(233,234,239,0.32)', 'rgba(143,152,205,0.52', 'rgb(232,232,232)', 'rgb(222,222,222)'],
 			loopHorizontal: false,
 			continuousVertical: true,
 			showActiveTooltip: true,
 			controlArrows: false,
 			responsiveWidth: 900,
-			responsiveHeight: 600,
-			anchors:['header', 'project1', 'project2', 'project3', 'project4', 'project5']
+			responsiveHeight: 600
 		});
 	};
 	$('.aboutButton').on('click', function() {

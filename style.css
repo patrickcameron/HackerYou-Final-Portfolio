@@ -645,7 +645,7 @@ img.screenshotLarge {
   cursor: pointer;
   padding: 0 15px;
   z-index: 19999;
-  width: 120px;
+  width: 150px;
   height: 55px;
   display: flex;
   flex-wrap: nowrap;
